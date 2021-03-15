@@ -13,4 +13,3 @@ gcd' x y
 myTail :: [a] -> [a]
 myTail (_ : xs) = xs
 myTail [] = error "No tail of an empty list."
-
