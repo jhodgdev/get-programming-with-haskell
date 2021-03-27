@@ -40,7 +40,7 @@ fib n = fib (n - 1) + fib (n - 2)
 
 fastFib :: Integral a => a -> a
 fastFib = f 0 1
-  where
+  where 
     f :: Integral a => a -> a -> a -> a
     f m n c = case c of
       0 -> m
