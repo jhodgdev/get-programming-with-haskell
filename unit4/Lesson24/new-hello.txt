@@ -1,0 +1,7 @@
+hello.txt chars:  29  words:  5  lines:  2
+hello.txt chars:  29  words:  5  lines:  2
+stats.dat chars:  86  words:  14  lines:  2
+hello.txt chars:  29  words:  5  lines:  2
+stats.dat chars:  173  words:  28  lines:  4
+hello.txt chars:  29  words:  5  lines:  2
+stats.dat chars:  261  words:  42  lines:  6

@@ -1,0 +1,26 @@
+import System.IO
+
+-- QC 24.1
+
+readStuff :: IO Handle
+readStuff = openFile "stuff.txt" ReadMode
+
+main :: IO ()
+main = do
+  helloFile <- openFile "hello.txt" ReadMode
+  hasLine <- hIsEOF helloFile
+  firstLine <-
+    if not hasLine
+      then hGetLine helloFile
+      else return "empty"
+  putStrLn firstLine
+  hasSecondLine <- hIsEOF helloFile
+  secondLine <-
+    if not hasSecondLine
+      then hGetLine helloFile
+      else return ""
+  goodbyeFile <- openFile "goodbye.txt" WriteMode
+  hPutStrLn goodbyeFile secondLine
+  hClose helloFile
+  hClose goodbyeFile
+  putStrLn "done!"
