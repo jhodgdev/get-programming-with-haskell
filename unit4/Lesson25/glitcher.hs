@@ -67,7 +67,7 @@ sortSection start size bytes = mconcat [before, changed, after]
   where
     (before, rest) = BC.splitAt start bytes
     (target, after) = BC.splitAt size rest
-    changed = BC.reverse (BC.sort target)
+    changed = BC.sort target
 
 randomSortSection :: BC.ByteString -> IO BC.ByteString
 randomSortSection bytes = do
@@ -75,3 +75,17 @@ randomSortSection bytes = do
   let bytesLength = BC.length bytes
   start <- randomRIO (0, bytesLength - sectionSize)
   return (sortSection start sectionSize bytes)
+
+randomReverseBytes :: BC.ByteString -> IO BC.ByteString
+randomReverseBytes bytes = do
+  let sectionSize = 25
+  let bytesLength = BC.length bytes
+  start <- randomRIO (0, bytesLength - sectionSize)
+  return (reverseBytes start sectionSize bytes)
+
+reverseBytes :: Int -> Int -> BC.ByteString -> BC.ByteString
+reverseBytes start size bytes = mconcat [before, changed, after]
+  where
+    (before, rest) = BC.splitAt start bytes
+    (target, after) = BC.splitAt size rest
+    changed = BC.reverse rest
